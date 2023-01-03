@@ -43,6 +43,7 @@ No providers.
 | Name                                          | Source        | Version |
 | --------------------------------------------- | ------------- | ------- |
 | <a name="module_eks"></a> [eks](#module\_eks) | ./modules/eks | n/a     |
+| <a name="module_k8s"></a> [k8s](#module\_k8s) | ./modules/k8s | n/a     |
 | <a name="module_rds"></a> [rds](#module\_rds) | ./modules/rds | n/a     |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | ./modules/vpc | n/a     |
 
