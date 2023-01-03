@@ -1,4 +1,3 @@
-<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 No requirements.
@@ -28,7 +27,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_backend_sg_id"></a> [backend\_sg\_id](#input\_backend\_sg\_id) | Security group for RDS instance | `string` | n/a | yes |
 | <a name="input_db_username"></a> [db\_username](#input\_db\_username) | RDS master user | `string` | n/a | yes |
 | <a name="input_private_subnet_ids"></a> [private\_subnet\_ids](#input\_private\_subnet\_ids) | Private Subnet ids for RDS instance creation | `list(string)` | n/a | yes |
 | <a name="input_rds_instance_class"></a> [rds\_instance\_class](#input\_rds\_instance\_class) | RDS instance class | `string` | `"db.t3.micro"` | no |
@@ -40,4 +38,3 @@ No modules.
 |------|-------------|
 | <a name="output_db_password"></a> [db\_password](#output\_db\_password) | Admin user password of rds instance |
 | <a name="output_rds_instance_endpoint"></a> [rds\_instance\_endpoint](#output\_rds\_instance\_endpoint) | RDS instance endpoint through which db-client can connect to it remotely |
-<!-- END_TF_DOCS -->

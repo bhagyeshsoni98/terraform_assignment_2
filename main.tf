@@ -11,9 +11,6 @@ module "eks" {
   eks_cluster_name   = "terraform_assignment"
   public_subnet_ids  = module.vpc.public_subnet_ids
   private_subnet_ids = module.vpc.private_subnet_ids
-  # desired_size      = 1
-  # max_size          = 2
-  # min_size          = 1
 }
 
 module "rds" {
@@ -22,5 +19,4 @@ module "rds" {
   rds_instance_class = var.rds_attributes.instance_class
   db_username        = var.rds_attributes.db_username
   private_subnet_ids = module.vpc.private_subnet_ids
-  # backend_sg_id      = module.ec2.backend_sg_id
 }
