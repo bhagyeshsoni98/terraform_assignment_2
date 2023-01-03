@@ -20,3 +20,8 @@ module "rds" {
   db_username        = var.rds_attributes.db_username
   private_subnet_ids = module.vpc.private_subnet_ids
 }
+
+module "k8s" {
+  source               = "./modules/k8s"
+  eks_cluster_endpoint = module.eks.endpoint
+}

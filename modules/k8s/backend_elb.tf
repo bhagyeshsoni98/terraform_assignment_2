@@ -2,7 +2,7 @@ resource "kubernetes_service_v1" "backend_elb" {
   wait_for_load_balancer = true
 
   metadata {
-    name = "backend_elb"
+    name = "backend-elb"
   }
 
   spec {

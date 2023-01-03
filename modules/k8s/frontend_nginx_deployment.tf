@@ -1,6 +1,6 @@
 resource "kubernetes_deployment" "nginx_frontend_deployment" {
   metadata {
-    name = "nginx_frontend_deployment"
+    name = "nginx-frontend-deployment"
     labels = {
       nginx_frontend_deployment = "nginx"
     }

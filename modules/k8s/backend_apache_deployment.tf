@@ -1,6 +1,6 @@
 resource "kubernetes_deployment" "apache_backend_deployment" {
   metadata {
-    name = "apache_backend_deployment"
+    name = "apache-backend-deployment"
     labels = {
       apache_backend_deployment = "apache"
     }

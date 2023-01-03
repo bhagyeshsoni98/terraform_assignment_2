@@ -1,6 +1,6 @@
 resource "kubernetes_horizontal_pod_autoscaler_v1" "nginx_ingress_hpa" {
   metadata {
-    name = "nginx_ingress_hpa"
+    name = "nginx-ingress-hpa"
   }
 
   spec {

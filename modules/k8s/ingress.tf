@@ -43,7 +43,7 @@ resource "kubernetes_ingress_v1" "nginx_ingress" {
 
 resource "kubernetes_deployment" "ingress_controller_deployment" {
   metadata {
-    name = "ingress_controller"
+    name = "ingress-controller"
     labels = {
       ingrss_controller = "nginx"
     }
