@@ -30,9 +30,10 @@ Create a 3-tier application environment using Terraform with the following requi
 
 ## Requirements
 
-| Name                                                    | Version |
-| ------------------------------------------------------- | ------- |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.0  |
+| Name                                                                         | Version |
+| ---------------------------------------------------------------------------- | ------- |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws)                      | ~> 4.0  |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | 2.16.1  |
 
 ## Providers
 
