@@ -24,8 +24,8 @@ resource "kubernetes_deployment" "nginx_frontend_deployment" {
 
       spec {
         container {
-          image = "nginx"
-          name  = "nginx:latest"
+          image = "nginx:latest"
+          name  = "nginx"
 
           port {
             container_port = 80
@@ -39,7 +39,7 @@ resource "kubernetes_deployment" "nginx_frontend_deployment" {
             required_during_scheduling_ignored_during_execution {
               node_selector_term {
                 match_expressions {
-                  key      = "kubernetes.io/node-group"
+                  key      = "kube.io/node-group"
                   operator = "In"
                   values   = ["frontend_node_group"]
                 }

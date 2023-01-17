@@ -66,7 +66,7 @@ resource "kubernetes_deployment" "ingress_controller_deployment" {
       spec {
         container {
           image = "k8s.gcr.io/ingress-nginx/controller:latest"
-          name  = "nginx_ingress_controller"
+          name  = "nginx-ingress-controller"
 
           args = ["/nginx-ingress-controller"]
 
@@ -94,7 +94,7 @@ resource "kubernetes_deployment" "ingress_controller_deployment" {
             required_during_scheduling_ignored_during_execution {
               node_selector_term {
                 match_expressions {
-                  key      = "kubernetes.io/node-group"
+                  key      = "kube.io/node-group"
                   operator = "In"
                   values   = ["frontend_node_group"]
                 }

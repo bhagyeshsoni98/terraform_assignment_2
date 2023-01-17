@@ -1,3 +1,7 @@
+data "aws_eks_cluster_auth" "eks_cluster" {
+  name = module.eks.eks_cluster_name
+}
+
 terraform {
   required_providers {
     aws = {
@@ -23,5 +27,7 @@ provider "aws" {
 }
 
 provider "kubernetes" {
-  config_path = "~/.kube/config"
+  host                   = module.eks.endpoint
+  cluster_ca_certificate = base64decode(module.eks.kubeconfig-certificate-authority-data)
+  token                  = data.aws_eks_cluster_auth.eks_cluster.token
 }

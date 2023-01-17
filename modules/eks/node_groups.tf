@@ -7,7 +7,7 @@ resource "aws_eks_node_group" "frontend_node_group" {
   capacity_type   = var.frontend_node_group_capacity_type
 
   labels = {
-    "kubernetes.io/node-group" = "frontend_node_group"
+    "kube.io/node-group" = "frontend_node_group"
   }
 
   scaling_config {
@@ -35,7 +35,7 @@ resource "aws_eks_node_group" "backend_node_group" {
   instance_types  = var.backend_node_group_instance_types
 
   labels = {
-    "kubernetes.io/node-group" = "backend_node_group"
+    "kube.io/node-group" = "backend_node_group"
   }
 
   scaling_config {

@@ -1,13 +1,23 @@
 ## **Terraform plan output**
+
 ```bash
-bhagyesh@BHAGYESH-SONI:~/citadel_assignment/terraform_assignment_2$ terraform plan
+bhagyesh@BHAGYESH-SONI:~/pip_assignments/citadel_assignment/terraform_assignment_2$ terraform plan
 module.vpc.data.aws_availability_zones.available: Reading...
-module.vpc.data.aws_availability_zones.available: Read complete after 1s [id=us-east-1]
+module.vpc.data.aws_availability_zones.available: Read complete after 2s [id=us-east-1]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
+ <= read (data resources)
 
 Terraform will perform the following actions:
+
+  # data.aws_eks_cluster_auth.eks_cluster will be read during apply
+  # (config refers to values not yet known)
+ <= data "aws_eks_cluster_auth" "eks_cluster" {
+      + id    = (known after apply)
+      + name  = (known after apply)
+      + token = (sensitive value)
+    }
 
   # module.eks.aws_ec2_capacity_reservation.reserved_instances_policy will be created
   + resource "aws_ec2_capacity_reservation" "reserved_instances_policy" {
@@ -76,7 +86,7 @@ Terraform will perform the following actions:
           + "t2.micro",
         ]
       + labels                 = {
-          + "kubernetes.io/node-group" = "backend_node_group"
+          + "kube.io/node-group" = "backend_node_group"
         }
       + node_group_name        = "backend_node_group"
       + node_group_name_prefix = (known after apply)
@@ -114,7 +124,7 @@ Terraform will perform the following actions:
           + "t2.micro",
         ]
       + labels                 = {
-          + "kubernetes.io/node-group" = "frontend_node_group"
+          + "kube.io/node-group" = "frontend_node_group"
         }
       + node_group_name        = "frontend_node_group"
       + node_group_name_prefix = (known after apply)
@@ -318,7 +328,7 @@ Terraform will perform the following actions:
                           + required_during_scheduling_ignored_during_execution {
                               + node_selector_term {
                                   + match_expressions {
-                                      + key      = "kubernetes.io/node-group"
+                                      + key      = "kube.io/node-group"
                                       + operator = "In"
                                       + values   = [
                                           + "backend_node_group",
@@ -330,9 +340,9 @@ Terraform will perform the following actions:
                     }
 
                   + container {
-                      + image                      = "apache"
+                      + image                      = "apache:latest"
                       + image_pull_policy          = (known after apply)
-                      + name                       = "apache:latest"
+                      + name                       = "apache"
                       + stdin                      = false
                       + stdin_once                 = false
                       + termination_message_path   = "/dev/termination-log"
@@ -695,7 +705,7 @@ Terraform will perform the following actions:
                           + required_during_scheduling_ignored_during_execution {
                               + node_selector_term {
                                   + match_expressions {
-                                      + key      = "kubernetes.io/node-group"
+                                      + key      = "kube.io/node-group"
                                       + operator = "In"
                                       + values   = [
                                           + "frontend_node_group",
@@ -712,7 +722,7 @@ Terraform will perform the following actions:
                         ]
                       + image                      = "k8s.gcr.io/ingress-nginx/controller:latest"
                       + image_pull_policy          = (known after apply)
-                      + name                       = "nginx_ingress_controller"
+                      + name                       = "nginx-ingress-controller"
                       + stdin                      = false
                       + stdin_once                 = false
                       + termination_message_path   = "/dev/termination-log"
@@ -1085,7 +1095,7 @@ Terraform will perform the following actions:
                           + required_during_scheduling_ignored_during_execution {
                               + node_selector_term {
                                   + match_expressions {
-                                      + key      = "kubernetes.io/node-group"
+                                      + key      = "kube.io/node-group"
                                       + operator = "In"
                                       + values   = [
                                           + "frontend_node_group",
@@ -1097,9 +1107,9 @@ Terraform will perform the following actions:
                     }
 
                   + container {
-                      + image                      = "nginx"
+                      + image                      = "nginx:latest"
                       + image_pull_policy          = (known after apply)
-                      + name                       = "nginx:latest"
+                      + name                       = "nginx"
                       + stdin                      = false
                       + stdin_once                 = false
                       + termination_message_path   = "/dev/termination-log"

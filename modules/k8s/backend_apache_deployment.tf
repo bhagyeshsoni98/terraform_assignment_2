@@ -24,8 +24,8 @@ resource "kubernetes_deployment" "apache_backend_deployment" {
 
       spec {
         container {
-          image = "apache"
-          name  = "apache:latest"
+          image = "apache:latest"
+          name  = "apache"
 
           port {
             container_port = 80
@@ -39,7 +39,7 @@ resource "kubernetes_deployment" "apache_backend_deployment" {
             required_during_scheduling_ignored_during_execution {
               node_selector_term {
                 match_expressions {
-                  key      = "kubernetes.io/node-group"
+                  key      = "kube.io/node-group"
                   operator = "In"
                   values   = ["backend_node_group"]
                 }
